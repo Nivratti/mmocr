@@ -1,3 +1,21 @@
+## Finetuning models
+
+### Finetuning textsnake model -- Linelevel text detector
+1. Generate dataset as per icdar2015 format. You can refer sample dataset avilable inside [dataset folder](https://github.com/Nivratti/mmocr/tree/main/dataset/Qatar-resident-id-card-front-10-icdar2015-format--live-level-annonations) and [script](https://github.com/Nivratti/text-localization-ocr-data-generator/blob/main/final_dataset_maker.py) and put it inside data folder.
+2. generate `instances_training.json` and `instances_test.json` with following command:
+    ```
+    python tools/data/textdet/icdar_converter.py /path/to/dataset -o /path/to/daatset -d icdar2015 --split-list training test
+    ```
+3. Modify config file as per requirments such as dataset foldername, epoch, learning rate etc..
+4. Run command:
+    ```
+    python3 tools/train.py configs/textdet/textsnake/textsnake_r50_fpn_unet_1200e_ctw1500_custom.py --load-from "https://download.openmmlab.com/mmocr/textdet/textsnake/textsnake_r50_fpn_unet_1200e_ctw1500-27f65b64.pth" --work-dir "ckpt/finetuning-textsnake-v1"
+    ```
+    
+    Note: For adding trained models of mmocr using load-from, you must give https link, for model trained by you, can specify local file path.
+    
+
+## Original Readme
 <div align="center">
   <img src="resources/mmocr-logo.png" width="500px"/>
   <div>&nbsp;</div>
@@ -18,6 +36,7 @@
   </div>
   <div>&nbsp;</div>
 </div>
+
 
 ## Introduction
 
