@@ -15,7 +15,7 @@
     Note: For adding trained models of mmocr using load-from, you must give https link, for model trained by you, can specify local file path.
 
 ## Important note:
-  Make sure dataset is valid, wrong annotations such coordinates order affect fine-tuning, if wrong coordinates order passed it will not detect any text in inference.
+  Make sure dataset is valid, wrong annotations such as coordinates order affect fine-tuning, if wrong coordinates order passed it will not detect any text in inference.
 
 ## Original Readme
 <div align="center">
